@@ -1,10 +1,15 @@
 ## rm_malloc
 
-This library wrap calls to malloc to include reference counting, it can also use any
+This library wraps calls to malloc to include reference counting, it can also use any
 preallocated memory pointer.
 
 Internally it use a simple hash table which holds all the reference counters, it hurts
 performance by a factor of 5 to 10.
+
+### Installation
+
+Honestly just copy the sources in your project, maybe someday we'll have NPM or
+Bundler-like stuff for C, but not in 2017.
 
 ### API
 
