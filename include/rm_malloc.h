@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 
-#include "rm_state.h"
+struct rm_state;
 
 #define RM_DEFAULT_HASH_SIZE 4096
 
