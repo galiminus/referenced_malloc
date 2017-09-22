@@ -3,7 +3,7 @@
 This library wrap calls to malloc to include reference counting, it can also use any
 preallocated memory pointer.
 
-Internally it use a simple hash table which hold all the reference counters, it hurts
+Internally it use a simple hash table which holds all the reference counters, it hurts
 performance by a factor of 5 to 10.
 
 ### API
@@ -30,7 +30,7 @@ int main() {
 `RM_DEFAULT_HASH_SIZE` is the default size of the hash table, you can try to tweak it
 to see if you get better perfomance.
 
-Note that the `struct rm_state` is opaque, the underlying structure can change without
+Note that the `struct rm_state` is opaque, the underlying structure can be changed without
 constituting an API break. However you can include `rm_state.h` to access its definition.
 
 #### Allocation and deallocation
@@ -53,9 +53,9 @@ int main() {
 }
 ```
 
-In this case `rm_malloc` and `rm_release` works pretty much like `malloc` and `free`.
+In this case `rm_malloc` and `rm_release` work pretty much like `malloc` and `free`.
 `rm_malloc` allocates a new chunk of memory a set its reference counter to 1, `rm_release`
-decrease the reference counter a `free()` the given data if the reference counter reaches 0.
+decreases the reference counter and `free()` the given data if the reference counter reaches 0.
 
 `rm_retain` can be used to increment the reference counter:
 
@@ -103,7 +103,7 @@ int main() {
 }
 ```
 
-And you detach a pointer from the entire state by calling `rm_detach`, this function
+You can detach a pointer from the entire state by calling `rm_detach`, this function
 will not free the attached data, but it will decrease its reference counter before
 returning it, so you can check if any other references are still holding.
 
